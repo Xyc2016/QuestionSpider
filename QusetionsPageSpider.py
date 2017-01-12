@@ -24,8 +24,11 @@ while True:
     newLinks=[]
     for item in Links:
         if item not in alreadyDownload:
+            try:
+                newLinks+=f1(item)
+                alreadyDownload.add(item)
+            except Exception as e:
+                continue
 
-            newLinks+=f1(item)
-            alreadyDownload.add(item)
     Links=newLinks
     print(Links)
